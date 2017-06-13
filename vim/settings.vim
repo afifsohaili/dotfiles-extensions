@@ -1,3 +1,5 @@
+source ~/dotfiles/vim/plugins.vim
+
 set clipboard=unnamed
 
 nnoremap <leader>va :VtrAttachToPane<cr>
@@ -22,7 +24,7 @@ endfunction
 
 let g:vtr_filetype_runner_overrides = {
       \ 'ruby': 'sr --fail-fast {file}',
-      \ 'sql': 'spring rake db:migrate:redo',
+      \ 'sql': 'spring rake db:migrate:redo'
       \ }
 
 set colorcolumn=80
