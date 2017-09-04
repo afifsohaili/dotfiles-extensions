@@ -1,5 +1,3 @@
-source ~/dotfiles/vim/plugins.vim
-
 set clipboard=unnamed
 
 nnoremap <leader>va :VtrAttachToPane<cr>
@@ -8,9 +6,11 @@ nnoremap <leader>vsf :VtrSendFile<cr>
 nnoremap <leader>vrs :VtrSendCommandToRunner<cr>
 nnoremap <leader>vfl :VtrSendFileAndLine<cr>
 
+set rtp+=~/dotfiles/vim "Submodules
+
 au FileType gitcommit set tw=72
 
-let g:polyglot_disabled = ['css', 'sass', 'scss']
+let g:polyglot_disabled = ['css', 'sass', 'scss', 'javascript']
 
 function! Multiple_cursors_before()
     exe 'NeoCompleteLock'
@@ -24,7 +24,8 @@ endfunction
 
 let g:vtr_filetype_runner_overrides = {
       \ 'ruby': 'sr --fail-fast {file}',
-      \ 'sql': 'spring rake db:migrate:redo'
+      \ 'sql': 'spring rake db:migrate:redo',
+      \ 'php': 'vendor/bin/phpunit {file}'
       \ }
 
 set colorcolumn=80
@@ -61,3 +62,7 @@ function! Wipeout()
     execute 'tabnext' l:currentTab
   endtry
 endfunction
+
+source ~/dotfiles/vim/plugins.vim
+
+let g:vim_g_query_url = "http://www.google.com/search?ie=UTF-8&sourceid=navclient&gfns=1&q="
